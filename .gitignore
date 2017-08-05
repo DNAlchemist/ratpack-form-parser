@@ -1,0 +1,28 @@
+### Gradle ###
+/.gradle
+/build/
+
+### Intellij ###
+
+# User-specific stuff:
+/.idea/**/workspace.xml
+/.idea/**/tasks.xml
+/.idea/dictionaries
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/modules/*.iml
+/.idea/uiDesigner.xml
+/.idea/vcs.xml
+/.idea/compiler.xml
+
+# Gradle:
+/.idea/**/gradle.xml
+/.idea/**/libraries
+
+# Intellij build output
+/out/
+
+## File-based project format:
+/*.iws
+/*.iml
+/*.ipr

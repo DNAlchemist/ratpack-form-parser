@@ -1,0 +1,31 @@
+apply plugin: 'groovy'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.10.0'
+    }
+}
+
+apply from: 'license.gradle'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compileOnly 'io.ratpack:ratpack-groovy:1.4.6'
+
+    compile 'org.codehaus.groovy:groovy-all:2.4.7'
+    compile 'javax.validation:validation-api:1.1.0.Final'
+
+    testCompile 'io.ratpack:ratpack-groovy:1.4.6'
+
+    testCompile 'org.glassfish.web:el-impl:2.2'
+    testCompile 'org.hibernate:hibernate-validator-cdi:5.4.1.Final'
+
+    testCompile 'junit:junit:4.12'
+}
