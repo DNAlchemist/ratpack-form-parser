@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package ratpack.form
+package one.chest.ratpack.form
 
 import groovy.transform.CompileDynamic
 import groovy.transform.CompileStatic
@@ -29,6 +29,7 @@ import groovy.transform.Memoized
 import groovy.util.logging.Slf4j
 import org.codehaus.groovy.runtime.DefaultGroovyMethods
 import org.codehaus.groovy.runtime.InvokerHelper
+import ratpack.form.Form
 
 import javax.validation.ValidationException
 import javax.validation.ValidatorFactory

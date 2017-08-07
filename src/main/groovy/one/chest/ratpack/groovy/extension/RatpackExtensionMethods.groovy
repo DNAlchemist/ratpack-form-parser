@@ -21,16 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package ratpack.form
+package one.chest.ratpack.groovy.extension
 
-import java.lang.annotation.ElementType
-import java.lang.annotation.Retention
-import java.lang.annotation.RetentionPolicy
-import java.lang.annotation.Target
+import groovy.transform.CompileStatic
+import groovy.util.logging.Slf4j
+import one.chest.ratpack.form.FormParser
+import ratpack.form.Form
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-@interface FormIgnoreProperties {
-    public String[] value() default []
-    public boolean ignoreUnknown() default false;
+@Slf4j
+@CompileStatic
+@SuppressWarnings("GroovyUnusedDeclaration")
+final class RatpackExtensionMethods {
+
+    public static <T> T asType(Form self, Class<T> clazz) {
+        return FormParser.parseAsType(self, clazz)
+    }
+
 }

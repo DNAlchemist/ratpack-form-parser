@@ -21,20 +21,32 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package ratpack.groovy.extension;
+package one.chest.ratpack.groovy.extension
 
-public class TestJavaPOJO {
+import groovy.transform.CompileStatic
+import org.junit.Test
+import ratpack.form.internal.DefaultForm
+import ratpack.util.internal.ImmutableDelegatingMultiValueMap
 
-    public String string;
-    public Integer integer;
-    public String field;
+import static java.util.Collections.emptyMap
 
-    public void setString(String string) {
-        this.string = string;
+@CompileStatic
+public class TypeConversionTest {
+
+    final ImmutableDelegatingMultiValueMap EMPTY_MAP = new ImmutableDelegatingMultiValueMap(emptyMap())
+
+
+    private static class TestInteger {
+        Integer formProperty
     }
 
-    public void setInteger(Integer integer) {
-        this.integer = integer;
+    @Test(expected = NumberFormatException)
+    public void testFloatToInteger() {
+        def input = [formProperty: ['1.1']] as ImmutableDelegatingMultiValueMap
+
+        def form = new DefaultForm(input, EMPTY_MAP)
+
+        form as TestInteger
     }
 
 }

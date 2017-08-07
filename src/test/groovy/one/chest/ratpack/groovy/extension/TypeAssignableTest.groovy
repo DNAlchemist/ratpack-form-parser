@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package ratpack.groovy.extension
+package one.chest.ratpack.groovy.extension
 
 import groovy.transform.CompileStatic
 import org.junit.Test

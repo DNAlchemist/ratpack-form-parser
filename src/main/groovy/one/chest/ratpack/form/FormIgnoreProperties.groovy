@@ -21,21 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package ratpack.form
+package one.chest.ratpack.form
 
-import groovy.transform.CompileStatic
+import java.lang.annotation.ElementType
+import java.lang.annotation.Retention
+import java.lang.annotation.RetentionPolicy
+import java.lang.annotation.Target
 
-@CompileStatic
-class UnrecognizedFormPropertyException extends IOException {
-
-    UnrecognizedFormPropertyException(String propertyName, Class<?> clazz) {
-        super(buildMessage(propertyName, clazz))
-    }
-
-    private static String buildMessage(String propertyName, Class<?> clazz) {
-        def properties = clazz.declaredFields*.name
-        String message = /Unrecognized field "$propertyName" ($clazz), not marked as ignorable (${properties.size()} / +
-                /known properties: "${properties.join('", "')}")/
-        return message
-    }
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+@interface FormIgnoreProperties {
+    public String[] value() default []
+    public boolean ignoreUnknown() default false;
 }

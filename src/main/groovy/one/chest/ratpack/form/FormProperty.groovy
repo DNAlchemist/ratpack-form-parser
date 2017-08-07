@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package ratpack.form
+package one.chest.ratpack.form
 
 import java.lang.annotation.ElementType
 import java.lang.annotation.Retention

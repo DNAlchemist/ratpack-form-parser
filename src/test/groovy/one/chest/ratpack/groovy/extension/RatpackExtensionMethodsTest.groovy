@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package ratpack.groovy.extension
+package one.chest.ratpack.groovy.extension
 
 import groovy.transform.CompileStatic
+import one.chest.ratpack.form.FormProperty
+import one.chest.ratpack.form.UnrecognizedFormPropertyException
 import org.junit.Test
-import ratpack.form.FormProperty
-import ratpack.form.UnrecognizedFormPropertyException
 import ratpack.form.internal.DefaultForm
 import ratpack.util.internal.ImmutableDelegatingMultiValueMap
 

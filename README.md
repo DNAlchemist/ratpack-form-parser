@@ -36,7 +36,7 @@ Usage
 
     // curl -XPOST localhost:5050/balloon --data "mass_density=0.179"  
     
-    import ratpack.form.FormProperty
+    import one.chest.ratpack.form.FormProperty
     class Balloon {
         @FormProperty("mass_density")
         float massDensity
@@ -98,5 +98,5 @@ To use validation features, you must include one of the libraries that implement
     
 #### See also 
 
-> [FormIgnoreProperties](src/test/groovy/ratpack/groovy/extension/FormIgnorePropertiesTest.groovy)
+> [FormIgnoreProperties](src/test/groovy/one/chest/ratpack/groovy/extension/FormIgnorePropertiesTest.groovy)
 

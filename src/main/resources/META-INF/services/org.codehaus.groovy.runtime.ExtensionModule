@@ -1,4 +1,4 @@
 # File: src/main/resources/META-INF/services/org.codehaus.groovy.runtime.ExtensionModule
 moduleName = ratpack-validation-module
 moduleVersion = 0.0.1
-extensionClasses = ratpack.groovy.extension.RatpackExtensionMethods
+extensionClasses = one.chest.ratpack.groovy.extension.RatpackExtensionMethods
