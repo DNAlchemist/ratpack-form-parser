@@ -177,8 +177,8 @@ public class RatpackExtensionMethodsTest {
 
         def form = new DefaultForm(input, EMPTY_MAP)
 
-        def pojo = form as HashMap
-        assert pojo.integer == ""
+        def hashMap = form as HashMap
+        assert hashMap.integer == ""
     }
 
     @Test
@@ -187,7 +187,7 @@ public class RatpackExtensionMethodsTest {
 
         def form = new DefaultForm(input, EMPTY_MAP)
 
-        def pojo = form as AtomicInteger
-        assert pojo.get().is(-42)
+        def atomicInteger = form as AtomicInteger
+        assert atomicInteger.get().is(-42)
     }
 }

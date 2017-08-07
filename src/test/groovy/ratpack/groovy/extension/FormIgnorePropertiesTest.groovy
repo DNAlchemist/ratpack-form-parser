@@ -47,9 +47,9 @@ class FormIgnorePropertiesTest {
 
         def form = new DefaultForm(input, EMPTY_MAP)
 
-        def pojo = form as TestPOGOIgnoreUnknownProperties
-        assert !pojo.string
-        assert pojo.integer == 10
+        def pogo = form as TestPOGOIgnoreUnknownProperties
+        assert !pogo.string
+        assert pogo.integer == 10
     }
 
 
@@ -65,9 +65,9 @@ class FormIgnorePropertiesTest {
 
         def form = new DefaultForm(input, EMPTY_MAP)
 
-        def pojo = form as TestPOGOIgnoreProperty
-        assert !pojo.string
-        assert pojo.integer == 10
+        def pogo = form as TestPOGOIgnoreProperty
+        assert !pogo.string
+        assert pogo.integer == 10
     }
 
 }

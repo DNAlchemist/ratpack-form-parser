@@ -46,8 +46,8 @@ public class TypeAssignableTest {
 
         def form = new DefaultForm(input, EMPTY_MAP)
 
-        def pojo = form as TestString
-        assert pojo.formProperty == 'test'
+        def pogo = form as TestString
+        assert pogo.formProperty == 'test'
     }
 
 
@@ -61,8 +61,8 @@ public class TypeAssignableTest {
 
         def form = new DefaultForm(input, EMPTY_MAP)
 
-        def pojo = form as TestInteger
-        assert pojo.formProperty == 1
+        def pogo = form as TestInteger
+        assert pogo.formProperty == 1
     }
 
 
@@ -76,8 +76,8 @@ public class TypeAssignableTest {
 
         def form = new DefaultForm(input, EMPTY_MAP)
 
-        def pojo = form as TestLong
-        assert pojo.formProperty == 1
+        def pogo = form as TestLong
+        assert pogo.formProperty == 1
     }
 
 
@@ -91,8 +91,8 @@ public class TypeAssignableTest {
 
         def form = new DefaultForm(input, EMPTY_MAP)
 
-        def pojo = form as TestDouble
-        assert pojo.formProperty == 1
+        def pogo = form as TestDouble
+        assert pogo.formProperty == 1
     }
 
 
@@ -106,8 +106,8 @@ public class TypeAssignableTest {
 
         def form = new DefaultForm(input, EMPTY_MAP)
 
-        def pojo = form as TestBigDecimal
-        assert pojo.formProperty == 1.33333333333333333333333333333333333
+        def pogo = form as TestBigDecimal
+        assert pogo.formProperty == 1.33333333333333333333333333333333333
     }
 
 
@@ -121,8 +121,8 @@ public class TypeAssignableTest {
 
         def form = new DefaultForm(input, EMPTY_MAP)
 
-        def pojo = form as TestPrimitiveByte
-        assert pojo.formProperty == 0b00000001 as byte
+        def pogo = form as TestPrimitiveByte
+        assert pogo.formProperty == 0b00000001 as byte
     }
 
 }
