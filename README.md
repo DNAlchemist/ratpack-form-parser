@@ -98,5 +98,5 @@ To use validation features, you must include one of the libraries that implement
     
 #### See also 
 
-[FormIgnoreProperties](src/test/groovy/ratpack/groovy/extension/FormIgnorePropertiesTest.groovy)
+> [FormIgnoreProperties](src/test/groovy/ratpack/groovy/extension/FormIgnorePropertiesTest.groovy)
 
