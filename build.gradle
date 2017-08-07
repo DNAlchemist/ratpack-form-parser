@@ -7,9 +7,11 @@ buildscript {
 
     dependencies {
         classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.10.0'
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.8.1'
     }
 }
 
+apply from: 'coverage.gradle'
 apply from: 'license.gradle'
 
 repositories {
