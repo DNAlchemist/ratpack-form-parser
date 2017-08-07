@@ -42,14 +42,13 @@ import static javax.validation.Validation.buildDefaultValidatorFactory
 final public class FormParser {
 
     private Map<String, Field> declaredFields
-    private List<String> ignoredProperties
     private Map<String, String> incomingValues
     Map<String, String> unusedFields
 
     private FormParser(Form self, Class<?> clazz) {
         declaredFields = getDeclaredFields(clazz)
         def ignorePropertiesAnnotation = clazz.getDeclaredAnnotation(FormIgnoreProperties)
-        ignoredProperties = ignorePropertiesAnnotation?.value() as List ?: []
+        def ignoredProperties = ignorePropertiesAnnotation?.value() as List ?: []
         incomingValues = self.findAll({ !ignoredProperties.contains(it.key) })
         unusedFields = ignorePropertiesAnnotation?.ignoreUnknown() ? [:] : new HashMap<>(incomingValues)
     }
@@ -61,8 +60,7 @@ final public class FormParser {
 
         FormParser parser = new FormParser(self, clazz)
         T instance = parser.incomingValues.inject(clazz.newInstance(), { instance, String name, value ->
-            if(name in parser.ignoredProperties)
-                return instance
+
             value = value ?: null
 
             Field field = parser.declaredFields[name]
