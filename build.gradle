@@ -1,3 +1,6 @@
+group = 'one.chest.ratpack'
+version = '0.0.1'
+
 apply plugin: 'groovy'
 
 buildscript {
