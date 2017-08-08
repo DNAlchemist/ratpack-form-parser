@@ -10,6 +10,7 @@
 /.idea/inspectionProfiles/profiles_settings.xml
 /.idea/**/tasks.xml
 /.idea/dictionaries
+/.idea/.name
 /.idea/misc.xml
 /.idea/modules.xml
 /.idea/modules/*.iml
