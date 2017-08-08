@@ -1,0 +1,63 @@
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+def hasCredentials = hasProperty('ossrhUsername') && hasProperty('ossrhPassword');
+
+uploadArchives.doFirst {
+    if(!hasCredentials) {
+        throw new InvalidUserDataException('Missing properties "ossrhUsername" and "ossrhPassword"')
+    }
+}
+
+if(hasCredentials) {
+    configureDeployment()
+}
+
+@SuppressWarnings(["GroovyAssignabilityCheck", "GrUnresolvedAccess"])
+def configureDeployment() {
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+            }
+        }
+    }
+
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                    authentication(userName: ossrhUsername, password: ossrhPassword)
+                }
+
+                pom.project {
+                    name 'Ratpack extension for parsing requests'
+                    packaging 'jar'
+                    url 'https://ratpack.chest.one'
+
+                    licenses {
+                        license {
+                            name 'The MIT License'
+                            url 'http://www.opensource.org/licenses/mit-license.php'
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id 'dnalchemist'
+                            name 'Mikhalev Ruslan'
+                            email 'mikhalev.ruslan@gmail.com'
+                        }
+                    }
+                }
+
+                snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                    authentication(userName: ossrhUsername, password: ossrhPassword)
+                }
+            }
+        }
+    }
+
+}

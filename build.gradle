@@ -16,6 +16,7 @@ buildscript {
 
 apply from: 'coverage.gradle'
 apply from: 'license.gradle'
+apply from: 'publication.gradle'
 
 repositories {
     jcenter()
