@@ -3,6 +3,7 @@
 [![Build Status][travis-image]][travis-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
 
+[![License][license-image]][license-url]
 
 Usage 
 -
@@ -106,3 +107,6 @@ To use validation features, you must include one of the libraries that implement
 [travis-url]: https://travis-ci.org/DNAlchemist/ratpack-form-parser
 [coveralls-image]: https://coveralls.io/repos/github/DNAlchemist/ratpack-form-parser/badge.svg?branch=master
 [coveralls-url]: https://coveralls.io/github/DNAlchemist/ratpack-form-parser?branch=master
+
+[license-url]: https://github.com/Mashape/unirest-java/blob/master/LICENSE
+[license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat
