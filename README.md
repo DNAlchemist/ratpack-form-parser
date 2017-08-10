@@ -1,6 +1,8 @@
 
-[![Build Status](https://travis-ci.org/DNAlchemist/ratpack-form-parser.svg?branch=master)](https://travis-ci.org/DNAlchemist/ratpack-form-parser)
-[![Coverage Status](https://coveralls.io/repos/github/DNAlchemist/ratpack-form-parser/badge.svg?branch=master)](https://coveralls.io/github/DNAlchemist/ratpack-form-parser?branch=master)
+
+[![Build Status][travis-image]][travis-url]
+[![Coverage Status][coveralls-image]][coveralls-url]
+
 
 Usage 
 -
@@ -100,3 +102,7 @@ To use validation features, you must include one of the libraries that implement
 
 > [FormIgnoreProperties](src/test/groovy/one/chest/ratpack/groovy/extension/FormIgnorePropertiesTest.groovy)
 
+[travis-image]: https://travis-ci.org/DNAlchemist/ratpack-form-parser.svg?branch=master
+[travis-url]: https://travis-ci.org/DNAlchemist/ratpack-form-parser
+[coveralls-image]: https://coveralls.io/repos/github/DNAlchemist/ratpack-form-parser/badge.svg?branch=master
+[coveralls-url]: https://coveralls.io/github/DNAlchemist/ratpack-form-parser?branch=master
