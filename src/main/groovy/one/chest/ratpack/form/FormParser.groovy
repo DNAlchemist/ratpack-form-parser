@@ -39,7 +39,7 @@ import static javax.validation.Validation.buildDefaultValidatorFactory
 
 @Slf4j
 @CompileStatic
-final public class FormParser {
+public final class FormParser {
 
     private Map<String, Field> declaredFields
     private Map<String, String> incomingValues

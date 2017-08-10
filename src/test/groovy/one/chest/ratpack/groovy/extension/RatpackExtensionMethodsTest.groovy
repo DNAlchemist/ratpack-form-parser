@@ -171,6 +171,7 @@ public class RatpackExtensionMethodsTest {
         assert pojo.integer == null
     }
 
+
     @Test
     public void testAsHashMap() {
         def input = [integer: ['']] as ImmutableDelegatingMultiValueMap
@@ -180,6 +181,7 @@ public class RatpackExtensionMethodsTest {
         def hashMap = form as HashMap
         assert hashMap.integer == ""
     }
+
 
     @Test
     public void testParseJavaObject() {

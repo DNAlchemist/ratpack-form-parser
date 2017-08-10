@@ -26,7 +26,7 @@ package one.chest.ratpack.form
 import groovy.transform.CompileStatic
 
 @CompileStatic
-class UnrecognizedFormPropertyException extends IOException {
+public class UnrecognizedFormPropertyException extends IOException {
 
     UnrecognizedFormPropertyException(String propertyName, Class<?> clazz) {
         super(buildMessage(propertyName, clazz))
