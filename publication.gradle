@@ -33,7 +33,8 @@ def configureDeployment() {
                 }
 
                 pom.project {
-                    name 'Ratpack extension for parsing requests'
+                    name 'Ratpack form parser'
+                    description 'Ratpack extension for parsing requests'
                     packaging 'jar'
                     url 'https://ratpack.chest.one'
 
