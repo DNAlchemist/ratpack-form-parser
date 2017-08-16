@@ -46,6 +46,12 @@ def configureDeployment() {
                     packaging 'jar'
                     url 'https://ratpack.chest.one'
 
+                    scm {
+                        url 'https://github.com/DNAlchemist/ratpack-form-parser'
+                        connection 'scm:git:git://github.com/DNAlchemist/ratpack-form-parser.git'
+                        developerConnection 'scm:git:git://github.com/DNAlchemist/ratpack-form-parser.git'
+                    }
+
                     licenses {
                         license {
                             name 'MIT License'
