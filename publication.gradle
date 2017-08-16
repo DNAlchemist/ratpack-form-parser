@@ -2,15 +2,15 @@ apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
-def hasCredentials = hasProperty('ossrhUsername') && hasProperty('ossrhPassword');
+def hasCredentials = hasProperty('ossrhUsername') && hasProperty('ossrhPassword')
 
 uploadArchives.doFirst {
-    if(!hasCredentials) {
+    if (!hasCredentials) {
         throw new InvalidUserDataException('Missing properties "ossrhUsername" and "ossrhPassword"')
     }
 }
 
-if(hasCredentials) {
+if (hasCredentials) {
     configureDeployment()
 }
 
