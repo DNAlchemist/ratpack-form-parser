@@ -1,6 +1,7 @@
 
 
 [![Build Status][travis-image]][travis-url]
+[![Maven Central][maven-image]][maven-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
 
 [![License][license-image]][license-url]
@@ -105,6 +106,8 @@ To use validation features, you must include one of the libraries that implement
 
 [travis-image]: https://travis-ci.org/DNAlchemist/ratpack-form-parser.svg?branch=master
 [travis-url]: https://travis-ci.org/DNAlchemist/ratpack-form-parser
+[maven-image]: https://maven-badges.herokuapp.com/maven-central/one.chest.ratpack/ratpack-form-parser/badge.svg
+[maven-url]: https://maven-badges.herokuapp.com/maven-central/one.chest.ratpack/ratpack-form-parser
 [coveralls-image]: https://coveralls.io/repos/github/DNAlchemist/ratpack-form-parser/badge.svg?branch=master
 [coveralls-url]: https://coveralls.io/github/DNAlchemist/ratpack-form-parser?branch=master
 
