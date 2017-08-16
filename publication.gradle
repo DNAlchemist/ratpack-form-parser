@@ -2,6 +2,14 @@ apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
+project.ext.isSignatoryConfigured = {
+    if(project.hasProperty('signing.keyId') && project.hasProperty('signing.password') && project.hasProperty('signing.secretKeyRingFile'))
+        return true
+    else
+        logger.warn("No signatory is available to sign")
+    return false
+}.memoize()
+
 def hasCredentials = hasProperty('ossrhUsername') && hasProperty('ossrhPassword')
 
 uploadArchives.doFirst {
@@ -17,6 +25,11 @@ if (hasCredentials) {
 @SuppressWarnings(["GroovyAssignabilityCheck", "GrUnresolvedAccess"])
 def configureDeployment() {
 
+    signing {
+        if(isSignatoryConfigured())
+            sign configurations.archives
+    }
+
     publishing {
         publications {
             mavenJava(MavenPublication) {
@@ -29,10 +42,8 @@ def configureDeployment() {
         repositories {
             mavenDeployer {
                 beforeDeployment {
-                    if (project.hasProperty('signing.keyId') && project.hasProperty('signing.password') && project.hasProperty('signing.secretKeyRingFile')) {
+                    if (isSignatoryConfigured()) {
                         signing.signPom(it)
-                    } else {
-                        logger.warn("Unable to generate signature: no signatory is available to sign")
                     }
                 }
 
