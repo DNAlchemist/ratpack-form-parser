@@ -111,5 +111,5 @@ To use validation features, you must include one of the libraries that implement
 [coveralls-image]: https://coveralls.io/repos/github/DNAlchemist/ratpack-form-parser/badge.svg?branch=master
 [coveralls-url]: https://coveralls.io/github/DNAlchemist/ratpack-form-parser?branch=master
 
-[license-url]: https://github.com/Mashape/unirest-java/blob/master/LICENSE
+[license-url]: https://github.com/DNAlchemist/ratpack-form-parser/blob/master/LICENSE
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat
