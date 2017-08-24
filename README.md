@@ -104,6 +104,14 @@ To use validation features, you must include one of the libraries that implement
 
 > [FormIgnoreProperties](src/test/groovy/one/chest/ratpack/groovy/extension/FormIgnorePropertiesTest.groovy)
 
+#### Shadow Jar
+
+If you use a shadow library, do not forget to merge the extension module
+
+    shadowJar {
+        mergeGroovyExtensionModules()
+    } 
+
 [travis-image]: https://travis-ci.org/DNAlchemist/ratpack-form-parser.svg?branch=master
 [travis-url]: https://travis-ci.org/DNAlchemist/ratpack-form-parser
 [maven-image]: https://maven-badges.herokuapp.com/maven-central/one.chest.ratpack/ratpack-form-parser/badge.svg
