@@ -26,7 +26,9 @@ package one.chest.ratpack.groovy.extension
 import groovy.transform.CompileStatic
 import one.chest.ratpack.form.FormProperty
 import one.chest.ratpack.form.UnrecognizedFormPropertyException
+import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.ExpectedException
 import ratpack.form.internal.DefaultForm
 import ratpack.util.internal.ImmutableDelegatingMultiValueMap
 
@@ -40,6 +42,8 @@ public class RatpackExtensionMethodsTest {
 
     final ImmutableDelegatingMultiValueMap EMPTY_MAP = [:] as ImmutableDelegatingMultiValueMap
 
+    @Rule
+    public ExpectedException exception = ExpectedException.none()
 
     private static class TestPOGO {
         String string
@@ -76,27 +80,30 @@ public class RatpackExtensionMethodsTest {
         String required
     }
 
-    @Test(expected = ValidationException.class)
+    @Test
     public void testNotNullValidation() {
         def input = [optional: ['hello']] as ImmutableDelegatingMultiValueMap
 
         def form = new DefaultForm(input, EMPTY_MAP)
 
+        exception.expect(ValidationException)
+        exception.expectMessage('"required" parameter may not be null')
         form as TestPOGOWithNotNullValidation
     }
-
 
     private static class TestPOGOWithValidationPrimitive {
         @Min(1L)
         int positive
     }
 
-    @Test(expected = ValidationException.class)
+    @Test
     public void testValidationPrimitive() {
         def input = [positive: ["0"]] as ImmutableDelegatingMultiValueMap
 
         def form = new DefaultForm(input, EMPTY_MAP)
 
+        exception.expect(ValidationException)
+        exception.expectMessage('"positive" parameter must be greater than or equal to 1')
         form as TestPOGOWithValidationPrimitive
     }
 
