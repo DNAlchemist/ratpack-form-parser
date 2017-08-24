@@ -31,6 +31,7 @@ import org.codehaus.groovy.runtime.DefaultGroovyMethods
 import org.codehaus.groovy.runtime.InvokerHelper
 import ratpack.form.Form
 
+import javax.validation.ConstraintViolation
 import javax.validation.ValidationException
 import javax.validation.ValidatorFactory
 import java.lang.reflect.Field
@@ -54,7 +55,7 @@ public final class FormParser {
     }
 
     public static <T> T parseAsType(Form self, Class<T> clazz) {
-        if(isDefaultCastType(self, clazz)) {
+        if (isDefaultCastType(clazz)) {
             return DefaultGroovyMethods.asType(self, clazz)
         }
 
@@ -64,7 +65,7 @@ public final class FormParser {
             value = value ?: null
 
             Field field = parser.declaredFields[name]
-            if(field){
+            if (field) {
                 setValueToObjectProperty(instance, field.name, field.type, value)
                 parser.unusedFields.remove(name)
             }
@@ -75,13 +76,23 @@ public final class FormParser {
         }
 
         validatorFactory?.with {
-            validator.validate(instance).each({ throw new ValidationException(it.message) })
+            Set<ConstraintViolation<T>> errors = validator.validate(instance)
+
+            if (errors) {
+                throw new ValidationException(collectErrorsToString(errors))
+            }
         }
 
         return instance
     }
 
-    private static boolean isDefaultCastType(Form form, Class<?> clazz) {
+    private static String collectErrorsToString(Set<ConstraintViolation> constraintViolations) {
+        return constraintViolations
+                .collect({ /"${it.propertyPath}" parameter ${it.message}/ })
+                .join(", " + System.lineSeparator())
+    }
+
+    private static boolean isDefaultCastType(Class<?> clazz) {
         return Map.isAssignableFrom(clazz)
     }
 
