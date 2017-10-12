@@ -50,3 +50,11 @@ artifacts {
     archives sourcesJar
     archives javadocJar
 }
+
+import org.apache.tools.ant.filters.ReplaceTokens
+
+processResources {
+    filesMatching('**/org.codehaus.groovy.runtime.ExtensionModule') {
+        filter(ReplaceTokens, tokens: [NAME: project.name, VERSION: project.version])
+    }
+}
