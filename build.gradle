@@ -25,7 +25,7 @@ repositories {
 dependencies {
     compileOnly 'io.ratpack:ratpack-groovy:1.4.6'
 
-    compile 'org.codehaus.groovy:groovy-all:2.4.7'
+    compile 'org.codehaus.groovy:groovy-all:2.4.12'
     compile 'javax.validation:validation-api:1.1.0.Final'
 
     testCompile 'io.ratpack:ratpack-groovy:1.4.6'
