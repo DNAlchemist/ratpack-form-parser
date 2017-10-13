@@ -81,8 +81,8 @@ Usage
     
 #### Validation
 
-To use validation features, you must include one of the libraries that implement JSR 303  
-
+To use validation features, you must include one of the libraries that implement [JSR 303](https://jcp.org/en/jsr/detail?id=303)
+    
     // curl -XPOST localhost:5050/person --data "age=15"
     
     class Person {
