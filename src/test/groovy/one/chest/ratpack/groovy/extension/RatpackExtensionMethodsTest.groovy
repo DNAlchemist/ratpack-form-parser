@@ -25,6 +25,7 @@ package one.chest.ratpack.groovy.extension
 
 import groovy.transform.CompileStatic
 import one.chest.ratpack.form.FormProperty
+import one.chest.ratpack.form.TypeCastException
 import one.chest.ratpack.form.UnrecognizedFormPropertyException
 import org.junit.Rule
 import org.junit.Test
@@ -61,15 +62,15 @@ public class RatpackExtensionMethodsTest {
         assert pogo.integer == 10
     }
 
-    @Test(expected = NumberFormatException)
+    @Test
     public void testParsingInvalidType() {
         def input = [string: ['hello'], integer: ['1.1']] as ImmutableDelegatingMultiValueMap
 
         def form = new DefaultForm(input, EMPTY_MAP)
 
-        def pogo = form as TestPOGO
-        assert pogo.string == "hello"
-        assert pogo.integer == 10
+        exception.expect(TypeCastException)
+        exception.expectMessage("Cant't cast \"1.1\" to int")
+        form as TestPOGO
     }
 
 

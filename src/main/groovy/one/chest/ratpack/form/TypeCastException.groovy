@@ -21,38 +21,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package one.chest.ratpack.groovy.extension
+package one.chest.ratpack.form
 
-import groovy.transform.CompileStatic
-import one.chest.ratpack.form.TypeCastException
-import org.junit.Rule
-import org.junit.Test
-import org.junit.rules.ExpectedException
-import ratpack.form.internal.DefaultForm
-import ratpack.util.internal.ImmutableDelegatingMultiValueMap
+import groovy.transform.InheritConstructors
 
-import static java.util.Collections.emptyMap
-
-@CompileStatic
-public class TypeConversionTest {
-
-    final ImmutableDelegatingMultiValueMap EMPTY_MAP = new ImmutableDelegatingMultiValueMap(emptyMap())
-
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none()
-
-    private static class TestInteger {
-        Integer formProperty
-    }
-
-    @Test
-    public void testFloatToInteger() {
-        def input = [formProperty: ['1.1']] as ImmutableDelegatingMultiValueMap
-
-        def form = new DefaultForm(input, EMPTY_MAP)
-        expectedException.expect(TypeCastException)
-        expectedException.expectMessage(/Cant't cast "1.1" to class java.lang.Integer/)
-        form as TestInteger
-    }
+@InheritConstructors
+class TypeCastException extends RuntimeException {
 
 }

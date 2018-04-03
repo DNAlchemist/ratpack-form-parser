@@ -98,7 +98,11 @@ public final class FormParser {
 
     @CompileDynamic
     private static castToType(Object o, Class<?> clazz) {
-        return o.asType(clazz)
+        try {
+            return o.asType(clazz)
+        } catch(e) {
+            throw new TypeCastException(/Cant't cast "${o}" to ${clazz}/, e)
+        }
     }
 
     @Memoized
