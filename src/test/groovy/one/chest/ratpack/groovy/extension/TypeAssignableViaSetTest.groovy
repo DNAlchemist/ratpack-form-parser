@@ -136,7 +136,7 @@ public class TypeAssignableViaSetTest {
         byte formProperty
 
         void setFormProperty(String v) {
-            this.formProperty = Byte.MIN_VALUE - Byte.valueOf(v)
+            this.formProperty = (byte) (Byte.MIN_VALUE - Byte.valueOf(v))
         }
     }
 
